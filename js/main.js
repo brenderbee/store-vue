@@ -23,6 +23,9 @@ var app = new Vue({
   methods: {
     addToCart: function() {
       this.cart++;
+    },
+    updateProduct: function(variantImage) {
+      this.image = variantImage;
     }
   }
 });

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Product App</title>
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     <div class="nav-bar"></div>
@@ -30,8 +30,13 @@
           </ul>
 
           <h3>Colors</h3>
-          <div v-for="variant in variants" :key="variant.variantId">
-            <p>{{ variant.variantColor }}</p>
+          <div
+            v-for="variant in variants"
+            :key="variant.variantId"
+            class="color-box"
+            :style="{ backgroundColor: variant.variantColor }"
+            @mouseover="updateProduct(variant.variantImage)"
+          >
           </div>
 
           <button v-on:click="addToCart">Add to Cart</button>
