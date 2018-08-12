@@ -48,7 +48,18 @@ Vue.component('Product', {
 
       </div>
 
-      <product-review></product-review>
+      <div>
+        <h2>Reviews</h2>
+        <p>There are no reviews yet.</p>
+        <ul>
+          <li v-for="review in reviews">
+            <p>{{ review.name }}</p>
+            <p>Rating: {{ review.rating }}</p>
+            <p>{{ review.review }}</p>
+          </li>
+        </ul>
+      </div>
+      <product-review @review-submitted="addReview"></product-review>
 
     </div>
   `,
@@ -72,7 +83,8 @@ Vue.component('Product', {
           variantImage: 'src/img/vmSocks-blue-onWhite.jpg',
           variantQuantity: 0
         }
-      ]
+      ],
+      reviews: []
     }
   },
   methods: {
@@ -82,6 +94,9 @@ Vue.component('Product', {
     },
     updateProduct: function(index) {
       this.selectedVariant = index;
+    },
+    addReview: function(productReview) {
+      this.reviews.push(productReview);
     }
   },
   computed: {
@@ -152,6 +167,7 @@ Vue.component('product-review', {
         review: this.review,
         rating: this.rating
       }
+      this.$emit('review-submitted', productReview);
       this.resetForm();
     }
   }
