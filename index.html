@@ -32,11 +32,11 @@
 
           <h3>Colors</h3>
           <div
-            v-for="variant in variants"
+            v-for="(variant, index) in variants"
             :key="variant.variantId"
             class="color-box"
             :style="{ backgroundColor: variant.variantColor }"
-            @mouseover="updateProduct(variant.variantImage)"
+            @mouseover="updateProduct(index)"
           >
           </div>
 
