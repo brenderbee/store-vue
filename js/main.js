@@ -34,7 +34,7 @@ Vue.component('Product', {
           :key="variant.variantId"
           class="color-box"
           :style="{ backgroundColor: variant.variantColor }"
-          @mouseover="updateProduct(index)"
+          @click="updateProduct(index)"
         >
         </div>
 
