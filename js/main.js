@@ -47,6 +47,9 @@ Vue.component('Product', {
         </button>
 
       </div>
+
+      <product-review></product-review>
+      
     </div>
   `,
   data() {
