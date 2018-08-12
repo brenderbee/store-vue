@@ -77,7 +77,7 @@ Vue.component('Product', {
   },
   methods: {
     addToCart: function() {
-      this.inventory--;
+      this.variants[this.selectedVariant].variantQuantity--;
       this.cart++;
     },
     updateProduct: function(index) {
@@ -100,7 +100,7 @@ Vue.component('Product', {
       }
       return '2.99';
     }
-   }
+  }
 });
 
 var app = new Vue({
