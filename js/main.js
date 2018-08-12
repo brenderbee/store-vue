@@ -16,7 +16,7 @@ Vue.component('Product', {
         <p v-if="inventory > 10">In Stock</p>
         <p v-else-if="inventory <= 10 && inventory > 0">Almost sold out!</p>
         <p v-else>Out of Stock</p>
-        <p>User is premium: {{ childPremium }}</p>
+        <p>Shipping: {{ shipping }}</p>
 
         <h3>Details</h3>
         <ul>
@@ -93,8 +93,14 @@ Vue.component('Product', {
     },
     inventory: function() {
       return this.variants[this.selectedVariant].variantQuantity;
+    },
+    shipping: function() {
+      if (this.childPremium) {
+        return 'Free';
+      }
+      return '2.99';
     }
-  }
+   }
 });
 
 var app = new Vue({
