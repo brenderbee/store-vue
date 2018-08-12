@@ -100,6 +100,17 @@ Vue.component('Product', {
   }
 });
 
+Vue.component('product-review', {
+  template: `
+    <input>
+  `,
+  data() {
+    return {
+      name: null
+    }
+  }
+});
+
 var app = new Vue({
   el: '#app',
   data: {
