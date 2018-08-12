@@ -9,7 +9,10 @@
   <body>
     <div class="nav-bar"></div>
     <div id="app">
-      <Product :child-premium="masterPremium"></Product>
+      <div class="cart">
+        <p>Cart ({{ cart }})</p>
+      </div>
+      <Product :child-premium="masterPremium" @add-to-cart="updateCart"></Product>
     </div>
     <script type="text/javascript" src="js/vue.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
